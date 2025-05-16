@@ -12,7 +12,7 @@ const Tree = require('./models/tree');
 const treeData = [
     {
         description: 'Oak Tree',
-        price: 199.99,
+        price: 499.99,
     },
     {
         description: 'Pine Tree',
