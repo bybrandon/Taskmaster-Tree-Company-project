@@ -18,6 +18,13 @@ router.get('/new', ensureLoggedIn, (req, res) => {
   res.render('yards/new.ejs');
 });
 
+// POST /yards
+router.post('/', async (req, res) => {
+  req.user.yards.push(req.body);
+  await req.user.save();
+  res.redirect('/yards');
+});
+
 
 
 module.exports = router;

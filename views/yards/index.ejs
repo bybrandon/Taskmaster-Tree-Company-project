@@ -5,11 +5,11 @@
 <% if (user.yards.length) { %>
   <ul>
     <% user.yards.forEach((yard) => { %>
-      <li><a href="/yards/<%= yard._id %>"><%= yard.title %> at <%= yard.company %></a></li>
+      <li><a href="/yards/<%= yard._id %>"><%= yard.address %> at <%= yard.status %></a></li>
     <% }) %>
   </ul>
 <% } else { %>
-  <p>Your Yard is Empty</p>
+  <p>You Must Create a Yard</p>
 <% } %>
 
 <%- include('../partials/footer.ejs') %>
