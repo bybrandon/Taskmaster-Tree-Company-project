@@ -10,14 +10,14 @@
   <nav>
     <a href="/">🌴</a>
     <div>
-      <a href="/trees">ALL TREES</a>
+      <a href="/yards">Browse yards</a>
       <% if (user) { %>
-        <a href="/trees/new">ADD Tree</a>
-        <a href="/auth/sign-out">SIGN OUT</a>
+        <a href="/yards/new">Add Tree to Your Yard</a>
+        <a href="/auth/sign-out">Sign Out</a>
         <span><%= user.name %></span>
       <% } else { %>
-        <a href="/auth/sign-up">SIGN UP</a>
-        <a href="/auth/sign-in">SIGN IN</a>
+        <a href="/auth/sign-up">Sign Up</a>
+        <a href="/auth/sign-in">Sign In</a>
       <% } %>
     </div>
   </nav>

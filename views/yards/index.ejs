@@ -1,0 +1,15 @@
+<%- include('../partials/header.ejs') %>
+
+<h1>Your Yard</h1>
+
+<% if (user.yards.length) { %>
+  <ul>
+    <% user.yards.forEach((yard) => { %>
+      <li><a href="/yards/<%= yard._id %>"><%= yard.title %> at <%= yard.company %></a></li>
+    <% }) %>
+  </ul>
+<% } else { %>
+  <p>Your Yard is Empty</p>
+<% } %>
+
+<%- include('../partials/footer.ejs') %>

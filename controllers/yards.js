@@ -7,17 +7,17 @@ const ensureLoggedIn = require('../middleware/ensure-logged-in');
 // This is how we can more easily protect ALL routes for this router
 // router.use(ensureLoggedIn);
 
-// ALL paths start with '/trees'
+// ALL paths start with '/yards'
 
 // index action
 router.get('/', (req, res) => {
-  res.send('List of all trees - not protected');
+  res.render('yards/index.ejs');
 });
-// GET /trees/new
+// GET /yards/new
 router.get('/new', ensureLoggedIn, (req, res) => {
-  res.send('Create a Tree!');
+  res.render('yards/new.ejs');
 });
 
-router.
+
 
 module.exports = router;

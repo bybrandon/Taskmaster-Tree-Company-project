@@ -55,8 +55,8 @@ app.get('/', (req, res) => {
 // appended to the "starts with" path
 app.use('/auth', require('./controllers/auth'));
 
-// Update the trees data resource with your "main" resource
-app.use('/trees', require('./controllers/trees'));
+// Update the yards data resource with your "main" resource
+app.use('/yards', require('./controllers/yards'));
 
 
 app.listen(port, () => {
