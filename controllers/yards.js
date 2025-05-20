@@ -38,6 +38,13 @@ router.get('/:id', (req, res) =>{
   res.render('yards/show.ejs', { yard });
 });
 
+// Edit
+router.get('/:id/edit', (req, res) => {
+  const yard = req.user.yards.id(req.params.id);
+  const statuses = User.schema.path('yards').schema.path('status').enumValues;
+  res.render('yards/edit.ejs', { yard, statuses });
+});
+
 // Update
 router.put('/:id', async (req, res) => {
   const yard = req.user.yards.id(req.params.id);
