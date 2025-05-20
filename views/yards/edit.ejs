@@ -1,0 +1,21 @@
+<%- include('../partials/header.ejs') %>
+
+<h1>Edit Yard</h1>
+
+<form action="/yards/<%= yard._id %>?_method=PUT" method="POST">
+  <label for="address">address:</label>
+  <input type="text" name="address" id="address" value="<%= yard.address %>" />
+
+  <label for="status">Status:</label>
+  <select id="status" name="status" >
+    <% statuses.forEach((status) => { %>
+      <option value="<%= status %>" <%= status === yard.status ? 'selected' : '' %> >
+        <%= status.charAt(0).toUpperCase() + status.slice(1) %>
+      </option>
+    <% }) %>
+  </select>
+  <button type="submit">SAVE YARD</button>
+</form>
+
+
+<%- include('../partials/footer.ejs') %>
