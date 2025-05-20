@@ -1,0 +1,21 @@
+<%- include('../partials/header.ejs') %>
+
+<h1><%= yard.address %> at <%= yard.status %></h1>
+
+<% if (yard.notes) { %>
+  <p>Notes:<br> <%- yard.notes.replaceAll('\n', '<br>') %></p>
+<% } %>
+
+<% if (yard.postingLink) { %>
+  <a target="_blank" href="<%= yard.postingLink %>">View Yard Listing</a>
+<% } %>
+
+<p>Current Status: <%= yard.status.toUpperCase() %></p>
+
+<form action="/yards/<%= yard._id %>?_method=DELETE" method="POST">
+  <button type="submit">🗑️</button>
+</form>
+
+<a href="/yards/<%= yard._id %>/edit">EDIT YARD</a>
+
+<%- include('../partials/footer.ejs') %>

@@ -5,7 +5,7 @@
 <% if (user.yards.length) { %>
   <ul>
     <% user.yards.forEach((yard) => { %>
-      <li><a href="/yards/<%= yard._id %>"><%= yard.address %> at <%= yard.status %></a></li>
+      <li><a href="/yards/<%= yard._id %>"><%= yard.address %> is <%= yard.status %></a></li>
     <% }) %>
   </ul>
 <% } else { %>

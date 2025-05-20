@@ -10,13 +10,12 @@ const yardSchema = new Schema({
     status: {
         type: String,
         required: true,
-        enum: ['Planting', 'Replacing']
+        enum: ['Planting', 'Replacing', 'Trimming']
     },
-    trees: {
+    trees: [{
         type: Schema.Types.ObjectId,
         ref: "Tree"
-    },
-
+    }],
 }, {
     timestamps: true,
 });
