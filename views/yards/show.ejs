@@ -2,6 +2,18 @@
 
 <h1><%= yard.address %>  %></h1>
 
+<p>
+      <% if (isFavored) { %>
+        <form action="/yards/<%= yard._id %>/favorites?_method=DELETE" method="POST">
+          <button type="submit">😒</button>
+        </form>
+      <% } else if (user) { %>
+        <form action="/yards/<%= yard._id %>/favorites" method="POST">
+          <button type="submit">💗</button>
+        </form>
+      <% } %>
+    </p>
+
 <% if (yard.notes) { %>
   <p>Notes:<br> <%- yard.notes.replaceAll('\n', '<br>') %></p>
 <% } %>

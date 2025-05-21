@@ -18,7 +18,11 @@ const yardSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Tree'
     }
-   ]
+   ], 
+   favoritedBy: {
+    type: [Schema.Types.ObjectId],
+    ref: 'User'
+   }
 
 }, {
     timestamps: true,

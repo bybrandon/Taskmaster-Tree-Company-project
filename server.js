@@ -8,6 +8,7 @@ const methodOverride = require("method-override");
 // logging middleware
 const morgan = require("morgan");
 const session = require('express-session');
+const ensureLoggedIn = require("./middleware/ensure-logged-in");
 
 
 // Set the port from environment variable or default to 3000
@@ -47,7 +48,7 @@ app.use(require('./middleware/add-user-to-req-and-locals'));
 // Routes below
 
 // GET / (root/default) -> Home Page
-app.get('/', (req, res) => {
+app.get('/', ensureLoggedIn, (req, res) => {
   res.render('home.ejs');
 });
 
@@ -59,6 +60,7 @@ app.use('/auth', require('./controllers/auth'));
 // Update the yards data resource with your "main" resource
 app.use('/yards', require('./controllers/yards'));
 
+app.use('/', require('./controllers/favorites'))
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);

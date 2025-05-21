@@ -27,40 +27,40 @@ router.get('/new', ensureLoggedIn, async (req, res) => {
   res.render('yards/new.ejs', { trees });
 });
 
+// create
 router.post('/', async (req, res) => {
   const user = await User.findOne({ _id: req.user._id })
   const yard = await Yard.create(req.body)
-  console.log(user);
   user.yards.push(yard._id)
   await user.save()
+  console.log('yards', yard);
   res.redirect('/yards');
 });
 
 // show
 router.get('/:id', async (req, res) => {
   const yard = await Yard.findById(req.params.id).populate('trees');
-  res.render('yards/show.ejs', { yard });
+  const isFavored = yard.favoritedBy.some((id) => id.equals(req.user?._id));
+  res.render('yards/show.ejs', { yard, isFavored });
 });
 
 // Edit
 router.get('/:id/edit', async (req, res) => {
-  const yard = await Yard.findById(req.params.id);
-  const statuses = User.schema.path('yards').schema.path('status').enumValues;
+  const yard = await Yard.findById(req.params.id).populate('trees');
+  const statuses = Yard.schema.path('status').enumValues;
+  console.log('This is the message',yard);
   res.render('yards/edit.ejs', { yard, statuses });
 });
 
 // Update
 router.put('/:id', async (req, res) => {
-  const yard = await Yard.findById(req.params.id);
-  Object.assign(yard, req.body);
-  await req.user.save();
+  const yard = await Yard.findByIdAndUpdate(req.params.id, req.body);
   res.redirect(`/yards/${req.params.id}`);
 });
 
 // Delete
 router.delete('/:id', async (req, res) => {
-  req.user.yards.remove(req.params.id);
-  await req.user.save();
+  const yard = await Yard.findByIdAndDelete(req.params.id);
   res.redirect('/yards');
 });
 
