@@ -4,7 +4,7 @@
 
  <div class="treecontainer">
   <% trees.forEach((tree) => { %>
-    <div class="treecard"><%= tree.description %> priced at <%= tree.price %></div>
+    <div class="treecard">🌳<%= tree.description %> priced at $<%= tree.price %></div>
   <% }) %>
 </div>
 <% if (yards.length) { %>

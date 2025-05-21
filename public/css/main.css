@@ -3,16 +3,33 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.sign-in {
+  background-image: url(https://images.stockcake.com/public/9/7/4/9744a67a-13f7-4c91-aa5e-e28b5de87e3e_large/blossoming-pink-forest-stockcake.jpg);
+}
+
+h1 {
+  color: palevioletred;
+}
+
 body {
-  background-color: palevioletred;
+  background-color: white;
   height: 100vh;
   display: grid;
   grid-template-rows: auto 1fr auto;
 }
 
+.img-placeholderone {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column ;
+  height: 100vh;
+  width: 100vw;
+}
+
+
 nav,
 footer {
-  background-color: lab(lightness a b) ;
+  background-color: plum ;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -71,8 +88,9 @@ form button[type='submit'] {
 
 button:hover {
   background-color: lightslategray;
-  color: white;
+  color: rgb(212, 100, 100);
 }
+
 
 .error-msg {
   color: rgb(223, 116, 116);
