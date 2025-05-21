@@ -6,7 +6,8 @@ const router = express.Router();
 const ensureLoggedIn = require('../middleware/ensure-logged-in');
 const Yard = require('../models/yard');
 const User = require('../models/user');
-const Tree = require('../models/tree')
+const Tree = require('../models/tree');
+
 
 // This is how we can more easily protect ALL routes for this router
 // router.use(ensureLoggedIn);
@@ -15,9 +16,10 @@ const Tree = require('../models/tree')
 
 // index action
 router.get('/', ensureLoggedIn, async (req, res) => {
+  const trees = await Tree.find({});
   const yards = await Yard.find({});
   console.log(yards)
-  res.render('yards/index.ejs', { yards });
+  res.render('yards/index.ejs', { yards, trees });
 });
 // GET /yards/new
 router.get('/new', ensureLoggedIn, async (req, res) => {
@@ -49,7 +51,7 @@ router.get('/:id/edit', async (req, res) => {
 
 // Update
 router.put('/:id', async (req, res) => {
-   const yard = await Yard.findById(req.params.id);
+  const yard = await Yard.findById(req.params.id);
   Object.assign(yard, req.body);
   await req.user.save();
   res.redirect(`/yards/${req.params.id}`);

@@ -2,6 +2,11 @@
 
 <h1>Yard Listings</h1>
 
+ <div class="treecontainer">
+  <% trees.forEach((tree) => { %>
+    <div class="treecard"><%= tree.description %> priced at <%= tree.price %></div>
+  <% }) %>
+</div>
 <% if (yards.length) { %>
   <ul>
     <% yards.forEach((yard) => { %>
