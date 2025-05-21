@@ -4,7 +4,7 @@
 }
 
 body {
-  margin: 0;
+  background-color: palevioletred;
   height: 100vh;
   display: grid;
   grid-template-rows: auto 1fr auto;
@@ -12,7 +12,7 @@ body {
 
 nav,
 footer {
-  background-color: lightblue;
+  background-color: lab(lightness a b) ;
   display: flex;
   justify-content: space-between;
   align-items: center;

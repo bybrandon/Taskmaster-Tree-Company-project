@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 // shortcut variable
 const Schema = mongoose.Schema;
 
+/*
 const yardSchema = new Schema({
     address: {
         type: String,
@@ -19,7 +20,7 @@ const yardSchema = new Schema({
 }, {
     timestamps: true,
 });
-
+*/
 
 const userSchema = new Schema({
   email: {
@@ -35,7 +36,10 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  yards: [yardSchema]
+  yards: [{
+        type: Schema.Types.ObjectId,
+        ref: "Yard"
+    }]
 }, {
   // Mongoose will maintain a createdAt & updatedAt property
   timestamps: true

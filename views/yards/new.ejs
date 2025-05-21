@@ -12,6 +12,13 @@
     <option value="Replacing">Replacing</option>
     <option value="Trimming">Trimming</option>
   </select>
+
+  <label for="trees">Trees:</label>
+  <select id="trees" name="trees" multiple>
+    <% trees.forEach((tree) => { %>
+      <option value="<%= tree._id %>"><%= tree.description %></option>
+    <% }) %>
+  </select>
 <button type="submit">Revamp Yard</button>
 </form>
 

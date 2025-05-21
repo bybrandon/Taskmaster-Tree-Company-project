@@ -2,9 +2,9 @@
 
 <h1>Yard Listings</h1>
 
-<% if (user.yards.length) { %>
+<% if (yards.length) { %>
   <ul>
-    <% user.yards.forEach((yard) => { %>
+    <% yards.forEach((yard) => { %>
       <li><a href="/yards/<%= yard._id %>"><%= yard.address %> is <%= yard.status %></a></li>
     <% }) %>
   </ul>
