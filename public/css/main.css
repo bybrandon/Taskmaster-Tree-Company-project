@@ -3,14 +3,36 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+html {
+   width: 100vw;
+  height: 100vh;
+}
+
 .sign-in {
-  background-image: url(https://images.stockcake.com/public/9/7/4/9744a67a-13f7-4c91-aa5e-e28b5de87e3e_large/blossoming-pink-forest-stockcake.jpg);
+  background-image: url(https://www.carrie-lewis.com/wp-content/uploads/2018/01/Week-3-Weekly-Drawing-Step-4-1024x683.jpg);
   width: 100vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
   background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  form {
+    width: 50%;
+  }
+}
+
+.yardcontainer {
+  box-sizing: border-box;
+  list-style-image: url(https://cdn.theatlantic.com/thumbor/W1AE8BPYt3Z4MyOOx868Lf5W4BE=/0x0:2000x1125/960x540/media/img/mt/2024/03/Time_Travel_Thursdays_2/original.jpg);
+  li {
+    height: 8px;
+  }
 }
 
 h1 {
-  color: palevioletred;
+  color: black;
 }
 
 h3 {
@@ -53,7 +75,7 @@ body {
 
 nav,
 footer {
-  background-color: plum;
+  background-color: rgb(0, 0, 0);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -85,7 +107,6 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 5vmin;
   width: 100vw;
 }
 

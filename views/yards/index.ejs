@@ -8,7 +8,7 @@
   <% }) %>
 </div>
 <% if (yards.length) { %>
-  <ul>
+  <ul class="yardcontainer">
     <% yards.forEach((yard) => { %>
       <li><a href="/yards/<%= yard._id %>"><%= yard.address %> is <%= yard.status %></a></li>
     <% }) %>
