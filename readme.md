@@ -1,7 +1,7 @@
 # Taskmaster Tree.Co
 
-Does your yard need a little life. Could your community use a refresher, nothin gsuits you better than a Tree. Between a Choice of the classical Oak tree, a resilient and sturdy Pine Tree, and/or a Eco Firendly
-Baobob Tree. Revamp your Yard, Browse the yards of other's and above all, help your Environment and plant
+Does your yard need a little life. Could your community use a refresher, nothing suits you better than a Tree. Between a Choice of the classical Oak tree, a resilient and sturdy Pine Tree, and/or an Eco Friendly
+Baobob Tree. Revamp your Yard, Browse the yards of others and above all, help your environment and plant
 a tree today.
 
 
