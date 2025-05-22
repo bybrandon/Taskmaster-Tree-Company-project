@@ -1,5 +1,6 @@
 <%- include('../partials/header.ejs') %>
 
+<div class="sign-in">
 <h1>Sign In</h1>
 
 <form action="/auth/sign-in" method="POST">
@@ -11,5 +12,6 @@
 </form>
 
 <p class="error-msg"><%= error %></p>
+</div>
 
 <%- include('../partials/footer.ejs') %>

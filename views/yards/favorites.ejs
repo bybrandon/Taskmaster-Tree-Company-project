@@ -1,15 +1,17 @@
 <%- include('../partials/header.ejs') %>
 
-<h1>Your Favorites</h1>
+  <h1>Your Favorites</h1>
 
-<% if (yards.length) { %>
-  <ul>
-    <% yards.forEach((yard) => { %>
-      <li><a href="/yards/<%= yard._id %>"><%= yard.address %> is <%= yard.status %></a></li>
-    <% }) %>
-  </ul>
-<% } else { %>
-  <p>Give A Yard some Love</p>
-<% } %>
+  <% if (yards.length) { %>
+    <ul>
+      <% yards.forEach((yard)=> { %>
+        <li><a href="/yards/<%= yard._id %>">
+            <%= yard.address %> is <%= yard.status %>
+          </a></li>
+        <% }) %>
+    </ul>
+    <% } else { %>
+      <p>Give A Yard some Love</p>
+      <% } %>
 
-<%- include('../partials/footer.ejs') %>
+        <%- include('../partials/footer.ejs') %>

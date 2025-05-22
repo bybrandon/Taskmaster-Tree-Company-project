@@ -4,14 +4,13 @@ Does your yard need a little life. Could your community use a refresher, nothing
 Baobob Tree. Revamp your Yard, Browse the yards of others and above all, help your environment and plant
 a tree today.
 
-
 ## Implemented Technologies
 
 - JavaScript
 - Css (Cascading Style Sheet)
 - Ejs
 - mdn web docs_
-- W3schools
+- PixelSquid
 
 Click Image below to begin
 [![Click here to Match](images/disc.png

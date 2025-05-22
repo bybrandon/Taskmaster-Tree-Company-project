@@ -28,14 +28,27 @@
           </p>
 
           <form action="/yards/<%= yard._id %>?_method=DELETE" method="POST">
-            <button type="submit">🗑️</button>
+            <button type="submit">Remove Yard🗑️</button>
           </form>
 
           <a href="/yards/<%= yard._id %>/edit">EDIT YARD</a>
 
-          <form action="/yards/<%= yard._id %>/yards" method="POST">
+          <form action="/yards/<%= yard._id %>/comments" method="POST">
             <input type="text" name="comment" id="comment" />
             <button type="submit">💭</button>
           </form>
 
-          <%- include('../partials/footer.ejs') %>
+
+          <div class="commentcontainer">
+            <% if (yard.comments.length) { %>
+            <% yard.comments.forEach((comment)=> { %>
+              <div class="commentcard">🌳<%= comment.comment %> said $<%= comment.authorId %>
+              </div>
+              <% }) %>
+          </div>
+           
+            <% } else { %>
+              <p>No Comments</p>
+              <% } %>
+
+                <%- include('../partials/footer.ejs') %>

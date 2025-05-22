@@ -1,8 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-
-// Middleware used to protect routes that need a logged in user
 const ensureLoggedIn = require('../middleware/ensure-logged-in');
 const Yard = require('../models/yard');
 const User = require('../models/user');
@@ -84,7 +82,6 @@ router.delete('/:id/favorites', ensureLoggedIn, async (req, res) => {
 });
 
 // Comments
-
 router.post('/:id/comments', ensureLoggedIn, async (req, res) => {
   try {
     req.body.user = req.user._id;
