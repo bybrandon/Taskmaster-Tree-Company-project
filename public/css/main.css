@@ -11,6 +11,13 @@ h1 {
   color: palevioletred;
 }
 
+h3 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+article {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 body {
   background-color: white;
   height: 100vh;
@@ -24,12 +31,19 @@ body {
   height: 100vh;
   width: 100vw;
 }
+.img-placeholdertwo {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  padding-left: 950px ;
+}
 
 
 
 nav,
 footer {
-  background-color: plum ;
+  background-color: plum;
   display: flex;
   justify-content: space-between;
   align-items: center;

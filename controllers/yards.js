@@ -8,17 +8,10 @@ const Yard = require('../models/yard');
 const User = require('../models/user');
 const Tree = require('../models/tree');
 
-
-// This is how we can more easily protect ALL routes for this router
-// router.use(ensureLoggedIn);
-
-// ALL paths start with '/yards'
-
 // index action
 router.get('/', ensureLoggedIn, async (req, res) => {
   const trees = await Tree.find({});
   const yards = await Yard.find({});
-  console.log(yards)
   res.render('yards/index.ejs', { yards, trees });
 });
 // GET /yards/new
@@ -28,9 +21,8 @@ router.get('/new', ensureLoggedIn, async (req, res) => {
 });
 
 router.get('/favorites', ensureLoggedIn, async (req, res) => {
-    const yards = await Yard.find({ favoritedBy: req.user._id }).sort('-createdAt');
-    console.log('yard console', yards);
-    res.render('yards/favorites.ejs', { yards, title: 'Favorited Yards' });
+  const yards = await Yard.find({ favoritedBy: req.user._id }).sort('-createdAt');
+  res.render('yards/favorites.ejs', { yards, title: 'Favorited Yards' });
 });
 
 // create
@@ -39,7 +31,6 @@ router.post('/', ensureLoggedIn, async (req, res) => {
   const yard = await Yard.create(req.body)
   user.yards.push(yard._id)
   await user.save()
-  console.log('yards', yard);
   res.redirect('/yards');
 });
 
@@ -55,7 +46,6 @@ router.get('/:id', ensureLoggedIn, async (req, res) => {
 router.get('/:id/edit', ensureLoggedIn, async (req, res) => {
   const yard = await Yard.findById(req.params.id).populate('trees');
   const statuses = Yard.schema.path('status').enumValues;
-  console.log('This is the message',yard);
   res.render('yards/edit.ejs', { yard, statuses });
 });
 
@@ -74,42 +64,35 @@ router.delete('/:id', async (req, res) => {
 
 // Favorites
 
-// GET /favorites
-/*
-router.get('/favorites', ensureLoggedIn, async (req, res) => {
-    const yards = await Yard.find({ favoritedBy: req.user._id }).sort('-createdAt');
-    res.render('yards/favorites.ejs', { yards, title: 'Favorited Yards' });
-});
-*/
 // POST /yards/:id/favorites
 router.post('/:id/favorites', ensureLoggedIn, async (req, res) => {
-    const yard = await Yard.findById(req.params.id);
-    const user = await User.findOne({ _id: req.user._id });
-    yard.favoritedBy.push(user._id);
-    await yard.save();
-     res.redirect(`/yards/${req.params.id}`);
+  const yard = await Yard.findById(req.params.id);
+  const user = await User.findOne({ _id: req.user._id });
+  yard.favoritedBy.push(user._id);
+  await yard.save();
+  res.redirect(`/yards/${req.params.id}`);
 });
 
 
 // DELETE /yards/:id/favorites
 router.delete('/:id/favorites', ensureLoggedIn, async (req, res) => {
-    await Yard.findByIdAndUpdate(
-        req.params.id,
-        { $pull: { favoritedBy: req.user._id } }
-    );
-    res.redirect(`/yards/${req.params.id}`);
+  await Yard.findByIdAndUpdate(
+    req.params.id,
+    { $pull: { favoritedBy: req.user._id } }
+  );
+  res.redirect(`/yards/${req.params.id}`);
 });
-
 
 // Comments
 
 router.post('/:id/comments', ensureLoggedIn, async (req, res) => {
   try {
     req.body.user = req.user._id;
-    await yard.findByIdAndUpdate(
+    await Yard.findByIdAndUpdate(
       req.params.id,
       { $push: { comments: req.body } }
     );
+    console.log('req.body log',req.body);
     res.redirect(`/yards/${req.params.id}`);
   } catch (err) {
     console.log(err);

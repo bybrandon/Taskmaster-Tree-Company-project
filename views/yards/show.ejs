@@ -1,38 +1,41 @@
 <%- include('../partials/header.ejs') %>
 
-<h1><%= yard.address %>  %></h1>
+  <h1>
+    <%= yard.address %> %>
+  </h1>
 
-<p>
-      <% if (isFavored) { %>
-        <form action="/yards/<%= yard._id %>/favorites?_method=DELETE" method="POST">
-          <button type="submit">💗</button>
-        </form>
+  <p>
+    <% if (isFavored) { %>
+      <form action="/yards/<%= yard._id %>/favorites?_method=DELETE" method="POST">
+        <button type="submit">💗</button>
+      </form>
       <% } else { %>
         <form action="/yards/<%= yard._id %>/favorites" method="POST">
           <button type="submit">😒</button>
         </form>
-      <% } %>
-    </p>
+        <% } %>
+  </p>
 
-<% if (yard.notes) { %>
-  <p>Notes:<br> <%- yard.notes.replaceAll('\n', '<br>') %></p>
-<% } %>
+  <% if (yard.notes) { %>
+    <p>Notes:<br> <%- yard.notes.replaceAll('\n', '<br>' ) %></p>
+    <% } %>
 
-<% if (yard.postingLink) { %>
-  <a target="_blank" href="<%= yard.postingLink %>">View Yard Listing</a>
-<% } %>
+      <% if (yard.postingLink) { %>
+        <a target="_blank" href="<%= yard.postingLink %>">View Yard Listing</a>
+        <% } %>
 
-<p>Current Status: <%= yard.status.toUpperCase() %></p>
+          <p>Current Status: <%= yard.status.toUpperCase() %>
+          </p>
 
-<form action="/yards/<%= yard._id %>?_method=DELETE" method="POST">
-  <button type="submit">🗑️</button>
-</form>
+          <form action="/yards/<%= yard._id %>?_method=DELETE" method="POST">
+            <button type="submit">🗑️</button>
+          </form>
 
-<a href="/yards/<%= yard._id %>/edit">EDIT YARD</a>
+          <a href="/yards/<%= yard._id %>/edit">EDIT YARD</a>
 
-<form action="/yards/<%= yard._id %>/comments" method="POST">
-  <input type="text" name="comment" id="comment"/>
-  <button type="submit">💭</button>
-</form>
+          <form action="/yards/<%= yard._id %>/yards" method="POST">
+            <input type="text" name="comment" id="comment" />
+            <button type="submit">💭</button>
+          </form>
 
-<%- include('../partials/footer.ejs') %>
+          <%- include('../partials/footer.ejs') %>

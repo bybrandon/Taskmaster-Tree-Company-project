@@ -1,28 +1,30 @@
 <%- include('../partials/header.ejs') %>
 
-<h1>Edit Yard</h1>
+  <h1>Edit Yard</h1>
 
-<form action="/yards/<%= yard._id %>?_method=PUT" method="POST">
-  <label for="address">address:</label>
-  <input type="text" name="address" id="address" value="<%= yard.address %>" />
+  <form action="/yards/<%= yard._id %>?_method=PUT" method="POST">
+    <label for="address">address:</label>
+    <input type="text" name="address" id="address" value="<%= yard.address %>" />
 
-  <label for="status">Status:</label>
-  <select id="status" name="status" >
-    <% statuses.forEach((status) => { %>
-      <option value="<%= status %>" <%= status === yard.status ? 'selected' : '' %> >
-        <%= status.charAt(0).toUpperCase() + status.slice(1) %>
-      </option>
-    <% }) %>
-  </select>
-<label for="trees">Trees:</label>
-  <select id="trees" name="trees" multiple>
-    <% yard.trees.forEach((tree) => { %>
-      <option value="<%= tree._id %>"><%= tree.description %></option>
-    <% }) %>
-  </select>
+    <label for="status">Status:</label>
+    <select id="status" name="status">
+      <% statuses.forEach((status)=> { %>
+        <option value="<%= status %>" <%=status===yard.status ? 'selected' : '' %> >
+          <%= status.charAt(0).toUpperCase() + status.slice(1) %>
+        </option>
+        <% }) %>
+    </select>
+    <label for="trees">Trees:</label>
+    <select id="trees" name="trees" multiple>
+      <% yard.trees.forEach((tree)=> { %>
+        <option value="<%= tree._id %>">
+          <%= tree.description %>
+        </option>
+        <% }) %>
+    </select>
 
-  <button type="submit">SAVE YARD</button>
-</form>
+    <button type="submit">SAVE YARD</button>
+  </form>
 
 
-<%- include('../partials/footer.ejs') %>
+  <%- include('../partials/footer.ejs') %>

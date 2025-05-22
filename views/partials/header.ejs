@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/main.css">
   <title>Yard</title>
 </head>
+
 <body>
   <nav>
     <a href="/">🌴</a>
     <div>
-      
+
       <% if (user) { %>
         <a href="/yards">Browse Yards</a>
         <a href="/yards/favorites">Favorited</a>
         <a href="/yards/new">Add Your Yard</a>
         <a href="/auth/sign-out">Sign Out</a>
-        <span><%= user.name %></span>
-      <% } else { %>
-        <a href="/auth/sign-up">Sign Up</a>
-        <a href="/auth/sign-in">Sign In</a>
-      <% } %>
+        <span>
+          <%= user.name %>
+        </span>
+        <% } else { %>
+          <a href="/auth/sign-up">Sign Up</a>
+          <a href="/auth/sign-in">Sign In</a>
+          <% } %>
     </div>
   </nav>
   <main>
