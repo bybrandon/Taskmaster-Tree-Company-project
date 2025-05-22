@@ -10,8 +10,10 @@
   <nav>
     <a href="/">🌴</a>
     <div>
-      <a href="/yards">Browse Yards</a>
+      
       <% if (user) { %>
+        <a href="/yards">Browse Yards</a>
+        <a href="/yards/favorites">Favorited</a>
         <a href="/yards/new">Add Your Yard</a>
         <a href="/auth/sign-out">Sign Out</a>
         <span><%= user.name %></span>

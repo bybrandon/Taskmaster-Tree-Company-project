@@ -58,9 +58,7 @@ app.get('/', ensureLoggedIn, (req, res) => {
 app.use('/auth', require('./controllers/auth'));
 
 // Update the yards data resource with your "main" resource
-app.use('/yards', require('./controllers/yards'));
-
-app.use('/', require('./controllers/favorites'))
+app.use('/yards', ensureLoggedIn, require('./controllers/yards'));
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);

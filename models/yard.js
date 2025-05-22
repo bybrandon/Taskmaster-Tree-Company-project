@@ -1,7 +1,15 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-
+const textSchema = new Schema({
+    comment: {
+        type: String,
+    },
+    authorId: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    },
+});
 
 const yardSchema = new Schema({
     address: {
@@ -13,20 +21,21 @@ const yardSchema = new Schema({
         required: true,
         enum: ['Planting', 'Replacing', 'Trimming']
     },
-   trees: [
-    {
-        type: Schema.Types.ObjectId,
-        ref: 'Tree'
-    }
-   ], 
-   favoritedBy: {
-    type: [Schema.Types.ObjectId],
-    ref: 'User'
-   }
-
+    trees: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Tree'
+        }
+    ],
+    favoritedBy: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        }
+    ],
+    comments: [textSchema]
 }, {
     timestamps: true,
 });
-
 
 module.exports = mongoose.model('Yard', yardSchema);

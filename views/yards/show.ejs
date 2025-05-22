@@ -5,11 +5,11 @@
 <p>
       <% if (isFavored) { %>
         <form action="/yards/<%= yard._id %>/favorites?_method=DELETE" method="POST">
-          <button type="submit">😒</button>
-        </form>
-      <% } else if (user) { %>
-        <form action="/yards/<%= yard._id %>/favorites" method="POST">
           <button type="submit">💗</button>
+        </form>
+      <% } else { %>
+        <form action="/yards/<%= yard._id %>/favorites" method="POST">
+          <button type="submit">😒</button>
         </form>
       <% } %>
     </p>
@@ -29,5 +29,10 @@
 </form>
 
 <a href="/yards/<%= yard._id %>/edit">EDIT YARD</a>
+
+<form action="/yards/<%= yard._id %>/comments" method="POST">
+  <input type="text" name="comment" id="comment"/>
+  <button type="submit">💭</button>
+</form>
 
 <%- include('../partials/footer.ejs') %>
