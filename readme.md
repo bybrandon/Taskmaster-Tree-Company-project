@@ -13,9 +13,12 @@ a tree today. Our service ranges from a variety of Triming, for your everyday tr
 - PixelSquid
 - stackoverflow
 
-Click the link to enter site
+Click the following link to enter site
 [![Let's Remaster Your Yard](images/disc.png
 )](https://taskmaster-tc-37434c58eeff.herokuapp.com/)
+
+### Homepage
+<img src="https://imgur.com/51jHHAI.png" alt="Screenshot">
 
 #### Later Site Additions may include:
 
