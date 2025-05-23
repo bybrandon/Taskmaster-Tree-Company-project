@@ -20,4 +20,4 @@ Click Image below to enter site
 #### Later Site Additions may include:
 
 - A wider variaty of Tree's for you Gardening needs
-- A more complex and Detailed layoout of Youir Yards
+- A more complex and Detailed layoout of Your Yards
