@@ -52,9 +52,6 @@ app.get('/', ensureLoggedIn, (req, res) => {
   res.render('home.ejs');
 });
 
-// The '/auth' is the "starts with" path.  The
-// paths defined in the router/controller will be
-// appended to the "starts with" path
 app.use('/auth', require('./controllers/auth'));
 
 // Update the yards data resource with your "main" resource
@@ -63,4 +60,3 @@ app.use('/yards', ensureLoggedIn, require('./controllers/yards'));
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
 });
-
