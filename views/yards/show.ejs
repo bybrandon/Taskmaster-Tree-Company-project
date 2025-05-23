@@ -41,14 +41,14 @@
 
           <div class="commentcontainer">
             <% if (yard.comments.length) { %>
-            <% yard.comments.forEach((comment)=> { %>
-              <div class="commentcard">🌳<%= comment.comment %> said $<%= comment.authorId %>
-              </div>
-              <% }) %>
+              <% yard.comments.forEach((comment)=> { %>
+                <div class="commentcard">🌳<%= comment.text %>Brandon commented <%= comment.comment %>
+                </div>
+                <% }) %>
           </div>
-           
-            <% } else { %>
-              <p>No Comments</p>
-              <% } %>
 
-                <%- include('../partials/footer.ejs') %>
+          <% } else { %>
+            <p>No Comments</p>
+            <% } %>
+
+              <%- include('../partials/footer.ejs') %>

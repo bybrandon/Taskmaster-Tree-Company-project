@@ -1,20 +1,23 @@
 <%- include('../partials/header.ejs') %>
 
-<h1>Yard Listings</h1>
+  <h1>Yard Listings</h1>
 
- <div class="treecontainer">
-  <% trees.forEach((tree) => { %>
-    <div class="treecard">🌳<%= tree.description %> priced at $<%= tree.price %></div>
-  <% }) %>
-</div>
-<% if (yards.length) { %>
-  <ul class="yardcontainer">
-    <% yards.forEach((yard) => { %>
-      <li><a href="/yards/<%= yard._id %>"><%= yard.address %> is <%= yard.status %></a></li>
-    <% }) %>
-  </ul>
-<% } else { %>
-  <p>You Must Create a Yard</p>
-<% } %>
+  <div class="treecontainer">
+    <% trees.forEach((tree)=> { %>
+      <div class="treecard">🌳<%= tree.description %> priced at $<%= tree.price %>
+      </div>
+      <% }) %>
+  </div>
+  <% if (yards.length) { %>
+    <ul class="yardcontainer">
+      <% yards.forEach((yard)=> { %>
+        <li><a href="/yards/<%= yard._id %>">
+            <%= yard.address %> is <%= yard.status %>
+          </a></li>
+        <% }) %>
+    </ul>
+    <% } else { %>
+      <p>You Must Create a Yard</p>
+      <% } %>
 
-<%- include('../partials/footer.ejs') %>
+        <%- include('../partials/footer.ejs') %>

@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
+
+// Middleware used to protect routes that need a logged in user
 const ensureLoggedIn = require('../middleware/ensure-logged-in');
 const Yard = require('../models/yard');
 const User = require('../models/user');
@@ -35,7 +37,8 @@ router.post('/', ensureLoggedIn, async (req, res) => {
 // show
 router.get('/:id', ensureLoggedIn, async (req, res) => {
   const yard = await Yard.findById(req.params.id).populate('trees');
-  console.log('This is the message', req.user);
+  yard.populate('comments.authorId');
+  console.log('This is the message', yard);
   const isFavored = yard.favoritedBy.some((id) => id.equals(req.user?._id));
   res.render('yards/show.ejs', { yard, isFavored });
 });
@@ -82,14 +85,15 @@ router.delete('/:id/favorites', ensureLoggedIn, async (req, res) => {
 });
 
 // Comments
+
 router.post('/:id/comments', ensureLoggedIn, async (req, res) => {
   try {
-    req.body.user = req.user._id;
+    req.body.authorId = req.user._id;
     await Yard.findByIdAndUpdate(
       req.params.id,
       { $push: { comments: req.body } }
     );
-    console.log('req.body log',req.body);
+    console.log('req.body log', req.body);
     res.redirect(`/yards/${req.params.id}`);
   } catch (err) {
     console.log(err);
